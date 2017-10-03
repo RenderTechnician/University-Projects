@@ -1,0 +1,10 @@
+C:\Users\willr\source\repos\Grade\Grade\bin\Debug\netcoreapp1.1\Grade.deps.json
+C:\Users\willr\source\repos\Grade\Grade\bin\Debug\netcoreapp1.1\Grade.runtimeconfig.json
+C:\Users\willr\source\repos\Grade\Grade\bin\Debug\netcoreapp1.1\Grade.runtimeconfig.dev.json
+C:\Users\willr\source\repos\Grade\Grade\bin\Debug\netcoreapp1.1\Grade.dll
+C:\Users\willr\source\repos\Grade\Grade\bin\Debug\netcoreapp1.1\Grade.pdb
+C:\Users\willr\source\repos\Grade\Grade\obj\Debug\netcoreapp1.1\Grade.csprojResolveAssemblyReference.cache
+C:\Users\willr\source\repos\Grade\Grade\obj\Debug\netcoreapp1.1\Grade.csproj.CoreCompileInputs.cache
+C:\Users\willr\source\repos\Grade\Grade\obj\Debug\netcoreapp1.1\Grade.AssemblyInfo.cs
+C:\Users\willr\source\repos\Grade\Grade\obj\Debug\netcoreapp1.1\Grade.dll
+C:\Users\willr\source\repos\Grade\Grade\obj\Debug\netcoreapp1.1\Grade.pdb
