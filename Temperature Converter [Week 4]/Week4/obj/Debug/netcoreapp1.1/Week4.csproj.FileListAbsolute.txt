@@ -1,0 +1,10 @@
+C:\Users\willr\source\repos\Week4\Week4\bin\Debug\netcoreapp1.1\Week4.deps.json
+C:\Users\willr\source\repos\Week4\Week4\bin\Debug\netcoreapp1.1\Week4.runtimeconfig.json
+C:\Users\willr\source\repos\Week4\Week4\bin\Debug\netcoreapp1.1\Week4.runtimeconfig.dev.json
+C:\Users\willr\source\repos\Week4\Week4\bin\Debug\netcoreapp1.1\Week4.dll
+C:\Users\willr\source\repos\Week4\Week4\bin\Debug\netcoreapp1.1\Week4.pdb
+C:\Users\willr\source\repos\Week4\Week4\obj\Debug\netcoreapp1.1\Week4.csprojResolveAssemblyReference.cache
+C:\Users\willr\source\repos\Week4\Week4\obj\Debug\netcoreapp1.1\Week4.csproj.CoreCompileInputs.cache
+C:\Users\willr\source\repos\Week4\Week4\obj\Debug\netcoreapp1.1\Week4.AssemblyInfo.cs
+C:\Users\willr\source\repos\Week4\Week4\obj\Debug\netcoreapp1.1\Week4.dll
+C:\Users\willr\source\repos\Week4\Week4\obj\Debug\netcoreapp1.1\Week4.pdb
