@@ -1,0 +1,11 @@
+C:\Users\willr\Documents\Visual Studio 2017\Projects\getandset\getandset\bin\Debug\netcoreapp2.0\getandset.deps.json
+C:\Users\willr\Documents\Visual Studio 2017\Projects\getandset\getandset\bin\Debug\netcoreapp2.0\getandset.runtimeconfig.json
+C:\Users\willr\Documents\Visual Studio 2017\Projects\getandset\getandset\bin\Debug\netcoreapp2.0\getandset.runtimeconfig.dev.json
+C:\Users\willr\Documents\Visual Studio 2017\Projects\getandset\getandset\bin\Debug\netcoreapp2.0\getandset.dll
+C:\Users\willr\Documents\Visual Studio 2017\Projects\getandset\getandset\bin\Debug\netcoreapp2.0\getandset.pdb
+C:\Users\willr\Documents\Visual Studio 2017\Projects\getandset\getandset\obj\Debug\netcoreapp2.0\getandset.csprojResolveAssemblyReference.cache
+C:\Users\willr\Documents\Visual Studio 2017\Projects\getandset\getandset\obj\Debug\netcoreapp2.0\getandset.csproj.CoreCompileInputs.cache
+C:\Users\willr\Documents\Visual Studio 2017\Projects\getandset\getandset\obj\Debug\netcoreapp2.0\getandset.AssemblyInfoInputs.cache
+C:\Users\willr\Documents\Visual Studio 2017\Projects\getandset\getandset\obj\Debug\netcoreapp2.0\getandset.AssemblyInfo.cs
+C:\Users\willr\Documents\Visual Studio 2017\Projects\getandset\getandset\obj\Debug\netcoreapp2.0\getandset.dll
+C:\Users\willr\Documents\Visual Studio 2017\Projects\getandset\getandset\obj\Debug\netcoreapp2.0\getandset.pdb
