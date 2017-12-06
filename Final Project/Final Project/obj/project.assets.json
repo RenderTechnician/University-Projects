@@ -673,11 +673,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\willr\\Documents\\Visual Studio 2017\\Projects\\Final Project\\Final Project\\Final Project.csproj",
+      "projectUniqueName": "C:\\Users\\willr\\Documents\\GitHub\\University-Projects\\Final Project\\Final Project\\Final Project.csproj",
       "projectName": "Final Project",
-      "projectPath": "C:\\Users\\willr\\Documents\\Visual Studio 2017\\Projects\\Final Project\\Final Project\\Final Project.csproj",
+      "projectPath": "C:\\Users\\willr\\Documents\\GitHub\\University-Projects\\Final Project\\Final Project\\Final Project.csproj",
       "packagesPath": "C:\\Users\\willr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\willr\\Documents\\Visual Studio 2017\\Projects\\Final Project\\Final Project\\obj\\",
+      "outputPath": "C:\\Users\\willr\\Documents\\GitHub\\University-Projects\\Final Project\\Final Project\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

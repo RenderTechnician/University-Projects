@@ -67,7 +67,11 @@ namespace Final_Project
                 IsOperator(val.GetVal);  
                 val.GetProgress++;
             } while (val.GetPuller.Length > val.GetProgress);
-            
+                
+             while (val.GetProgress == val.GetPuller.Length && val.GetStack.Count > 0)
+            {
+                Console.Write(val.GetStack.Pop());
+            }
             //output debug component
             Console.ReadLine();
         }
@@ -77,7 +81,6 @@ namespace Final_Project
            // Stack Stacks = new Stack();  // The primary stack 
            // Stack Bracket = new Stack();
             Regex r = new Regex("^[a-zA-Z ]+$");
-            
             //appends all operators to stack bracket
             if (charer == "(")
             {
@@ -93,20 +96,72 @@ namespace Final_Project
                     val.GetBracket = false;
                 }
             }
-            //will pop the stack if it isn't null, but the addition value will not be printed
-            else if (charer == "+")
+            //will pop the stack if it isn't null, but the addition value will not be printed (Addition operator)
+             if (charer == "+")
+            {
+              if (val.GetBracket == false)
+                {
+                    
+                    if (val.GetStack.Count != 0)
+                    {
+                        while(val.GetStack.Count != 0) 
+                        {
+                            Console.Write(val.GetStack.Pop());
+                            val.GetStack.Push(charer);
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        val.GetStack.Push(charer);
+                    }
+                }
+                 if (val.GetBracket == true)
+                {
+                    val.GetBrack.Push(charer);
+                }
+            }
+            //multiplication operator
+            if (charer == "*")
             {
                 if (val.GetBracket == false)
                 {
-                    if (val.GetStack == null)
+                    while (val.GetStack.Count != 0)
                     {
-                        Console.Write(val.GetStack.Pop());
+                        if (!val.GetStack.Contains("+"))
+                        {
+                            Console.Write(val.GetStack.Pop());
+                        }
+                        break;
                     }
-                  // val.GetStack.Push(charer);
-                   Console.Write(val.GetStack.Pop());
-                   // val.GetStack.Push(charer);
+                    val.GetStack.Push(charer);
                 }
-                 if (val.GetBracket == true)
+                if (val.GetBracket == true)
+                {
+                    val.GetBrack.Push(charer);
+                }
+            }
+            //division operator
+            if (charer == "/")
+            {
+                if (val.GetBracket == false)
+                {
+                    val.GetStack.Push(charer);
+                } 
+                if (val.GetBracket == true)
+                {
+                    val.GetBrack.Push(charer);
+                }
+            }
+            //subtraction operator
+            if (charer == "-")
+            {
+                if (val.GetBracket == false)
+                {
+                    Console.Write(val.GetStack.Pop());
+                    val.GetStack.Push(charer);
+                }
+                if (val.GetBracket == true)
                 {
                     val.GetBrack.Push(charer);
                 }
@@ -115,7 +170,7 @@ namespace Final_Project
             {
                 Console.Write(charer);
             }
-            //Console.Write(val.GetBracket);
+         //   Console.WriteLine(val.GetStack.Count);
             //brackets left, brackets right, addition, subtraction, multiplication, division
             return charer;
         }
