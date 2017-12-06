@@ -10,11 +10,12 @@ namespace Final_Project
         // Variable Declaration
         private string puller = "null";                     //gets string from readline
         private static bool bracket = false;               //A bool that is passed to the object to determine specific conditions. Mainly used when brackets are detected.
+        private static int Brackets = 0;
         private string Val = "null";                      // Equals the value of the current char of puller
         private string result = "null";                  // This is the postfix expresion 
         private int Progress = 0;                       // Controls how long the char counter is
-        private static Stack Stacks = new Stack();
-       private static Stack Bracket = new Stack();
+        private Stack Stacks = new Stack();
+        private Stack Bracket = new Stack();
         //Get + Set for each variable
         public string GetPuller     
         {
@@ -41,6 +42,11 @@ namespace Final_Project
             get { return Progress; }
             set { Progress = value;}
         }
+        public int GetBrackets
+        {
+            get { return Brackets; }
+            set { Brackets = value; }
+        }
         public Stack GetStack
         {
             get { return Stacks; }
@@ -60,7 +66,6 @@ namespace Final_Project
             Console.WriteLine("Please enter an infix expression below. I will convert it to a postfix expression using my mechanical mind!");
 
             val.GetPuller = Console.ReadLine();
-            //val.GetProgress = val.GetPuller.Length;
             do
             {
                 val.GetVal = val.GetPuller[val.GetProgress].ToString();
@@ -72,36 +77,32 @@ namespace Final_Project
             {
                 Console.Write(val.GetStack.Pop());
             }
-            //output debug component
             Console.ReadLine();
         }
         static string IsOperator(string charer)
         {
             values val = new values();
-           // Stack Stacks = new Stack();  // The primary stack 
-           // Stack Bracket = new Stack();
             Regex r = new Regex("^[a-zA-Z ]+$");
             //appends all operators to stack bracket
             if (charer == "(")
             {
-                val.GetBracket = true;
-               // Console.WriteLine(val.GetBracket);
+                val.GetBrackets++;
             }
             //expels all items stored in bracket stack to the console
-            else if (charer == ")")
+            if (charer == ")")
             {
-                if (val.GetBrack != null)
+                val.GetBrackets--;
+                while (val.GetBrack.Count == 0)
                 {
-                   Console.Write(val.GetBrack.Pop());
-                    val.GetBracket = false;
+                    Console.Write(val.GetBrack.Pop());
+                    break;
                 }
             }
             //will pop the stack if it isn't null, but the addition value will not be printed (Addition operator)
-             if (charer == "+")
+            else if (charer == "+")
             {
-              if (val.GetBracket == false)
+              if (val.GetBrackets == 0)//val.GetBracket == false)
                 {
-                    
                     if (val.GetStack.Count != 0)
                     {
                         while(val.GetStack.Count != 0) 
@@ -111,67 +112,65 @@ namespace Final_Project
                             break;
                         }
                     }
-                    else
-                    {
-                        val.GetStack.Push(charer);
-                    }
                 }
-                 if (val.GetBracket == true)
+                 if (val.GetBrackets > 0)
                 {
                     val.GetBrack.Push(charer);
                 }
             }
             //multiplication operator
-            if (charer == "*")
+           else if (charer == "*")
             {
-                if (val.GetBracket == false)
+                if (val.GetBrackets == 0)
                 {
                     while (val.GetStack.Count != 0)
                     {
                         if (!val.GetStack.Contains("+"))
                         {
                             Console.Write(val.GetStack.Pop());
+                            break;
                         }
-                        break;
                     }
                     val.GetStack.Push(charer);
                 }
-                if (val.GetBracket == true)
+                if (val.GetBrackets > 0)
                 {
-                    val.GetBrack.Push(charer);
+                    val.GetBrack.Push(charer);  
                 }
             }
             //division operator
-            if (charer == "/")
+           else if (charer == "/")
             {
-                if (val.GetBracket == false)
+                if (val.GetBrackets == 0)
                 {
                     val.GetStack.Push(charer);
                 } 
-                if (val.GetBracket == true)
+                if (val.GetBrackets > 0)
                 {
                     val.GetBrack.Push(charer);
                 }
             }
             //subtraction operator
-            if (charer == "-")
+           else if (charer == "-")
             {
-                if (val.GetBracket == false)
+                if (val.GetBrackets == 0)
                 {
-                    Console.Write(val.GetStack.Pop());
                     val.GetStack.Push(charer);
+                    Console.Write(val.GetStack.Pop());
+                    
                 }
-                if (val.GetBracket == true)
+             else  if (val.GetBrackets > 0)
                 {
                     val.GetBrack.Push(charer);
+                    Console.Write(val.GetBrack.Pop());
                 }
+                    //         Console.Write(val.GetBrack.Pop());
             }
-            if (r.IsMatch(charer))
+           else if (r.IsMatch(charer))
             {
                 Console.Write(charer);
+            //    Console.Write(val.GetBrackets);
             }
-         //   Console.WriteLine(val.GetStack.Count);
-            //brackets left, brackets right, addition, subtraction, multiplication, division
             return charer;
         }
     }
