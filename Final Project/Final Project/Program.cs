@@ -8,14 +8,14 @@ namespace Final_Project
     public class values
     {
         // Variable Declaration
-        private string puller = "null";                     //gets string from readline
-        private static bool bracket = false;               //A bool that is passed to the object to determine specific conditions. Mainly used when brackets are detected.
-        private static int Brackets = 0;
-        private string Val = "null";                      // Equals the value of the current char of puller
-        private string result = "null";                  // This is the postfix expresion 
-        private int Progress = 0;                       // Controls how long the char counter is
-        private static Stack Stacks = new Stack();
-        private static Stack Bracket = new Stack();
+        private string puller = "null";                       //gets string from readline
+        private static bool bracket = false;                 //A bool that is passed to the object to determine specific conditions. Mainly used when brackets are detected.
+        private static int Brackets = 0;                    // Will switch depends on whether the bracket count is ascending or descending. Vital for certain values to be stacked correctly.
+        private string Val = "null";                       // Equals the value of the current char of puller
+        private string result = "null";                   // This is the postfix expresion 
+        private int Progress = 0;                        // Controls how long the char counter is
+        private static Stack Stacks = new Stack();      // The default stack that values are placed into based on other conditions
+        private static Stack Bracket = new Stack();    // Values will only be stored here if the value detected is within a pair of enclosed brackets
         //Get + Set for each variable
         public string GetPuller     
         {
@@ -83,6 +83,7 @@ namespace Final_Project
         {
             values val = new values();
             Regex r = new Regex("^[a-zA-Z ]+$");
+            
             //appends all operators to stack bracket
             if (charer == "(")
             {
@@ -92,10 +93,18 @@ namespace Final_Project
             if (charer == ")")
             {
                 val.GetBrackets--;
-                while (val.GetBrack.Count != 0)
+                if (val.GetBrackets > 0)
                 {
-                    Console.Write(val.GetBrack.Pop());
-                   // break;
+                    val.GetBracket = true;
+                }
+                else
+                {
+                    val.GetBracket = false;
+                }
+                while (val.GetBrack.Count != 0 && val.GetBracket == false)
+                {
+                   Console.Write(val.GetBrack.Pop());
+                   break;
                 }
             }
             //will pop the stack if it isn't null, but the addition value will not be printed (Addition operator)
@@ -119,6 +128,10 @@ namespace Final_Project
                 }
                  if (val.GetBrackets > 0)
                 {
+                    if (val.GetBrack.Count > 0)
+                    {
+                        Console.Write(val.GetBrack.Pop());
+                    }
                     val.GetBrack.Push(charer);
                 }
             }
@@ -139,7 +152,11 @@ namespace Final_Project
                 }
                 if (val.GetBrackets > 0)
                 {
-                    val.GetBrack.Push(charer);  
+                    if (val.GetBrack.Count > 0)
+                    {
+                        Console.Write(val.GetBrack.Pop());
+                    }
+                    val.GetBrack.Push(charer);
                 }
             }
             //division operator
@@ -179,7 +196,8 @@ namespace Final_Project
             {
                 Console.Write(charer);
             }
-         //   Console.Write(val.GetStack.Count);
+            //   Console.Write(val.GetStack.Count);
+            //  Console.Write(val.GetBracket);
             return charer;
         }
     }
