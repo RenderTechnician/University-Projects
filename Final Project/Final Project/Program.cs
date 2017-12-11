@@ -14,8 +14,8 @@ namespace Final_Project
         private string Val = "null";                      // Equals the value of the current char of puller
         private string result = "null";                  // This is the postfix expresion 
         private int Progress = 0;                       // Controls how long the char counter is
-        private Stack Stacks = new Stack();
-        private Stack Bracket = new Stack();
+        private static Stack Stacks = new Stack();
+        private static Stack Bracket = new Stack();
         //Get + Set for each variable
         public string GetPuller     
         {
@@ -92,25 +92,29 @@ namespace Final_Project
             if (charer == ")")
             {
                 val.GetBrackets--;
-                while (val.GetBrack.Count == 0)
+                while (val.GetBrack.Count != 0)
                 {
                     Console.Write(val.GetBrack.Pop());
-                    break;
+                   // break;
                 }
             }
             //will pop the stack if it isn't null, but the addition value will not be printed (Addition operator)
             else if (charer == "+")
             {
-              if (val.GetBrackets == 0)//val.GetBracket == false)
+              if (val.GetBrackets == 0)
                 {
-                    if (val.GetStack.Count != 0)
+                    if (val.GetStack.Count > 0)
                     {
-                        while(val.GetStack.Count != 0) 
+                        while(val.GetStack.Count > 0) 
                         {
                             Console.Write(val.GetStack.Pop());
                             val.GetStack.Push(charer);
                             break;
                         }
+                    }
+                    else
+                    {
+                      val.GetStack.Push(charer);
                     }
                 }
                  if (val.GetBrackets > 0)
@@ -155,22 +159,27 @@ namespace Final_Project
             {
                 if (val.GetBrackets == 0)
                 {
-                    val.GetStack.Push(charer);
-                    Console.Write(val.GetStack.Pop());
-                    
+                    if (val.GetStack.Count > 0)
+                    {
+                        Console.Write(val.GetStack.Pop());
+                        val.GetStack.Push(charer);
+                    }
+                    else
+                    {
+                        val.GetStack.Push(charer);
+                    }
                 }
              else  if (val.GetBrackets > 0)
                 {
                     val.GetBrack.Push(charer);
                     Console.Write(val.GetBrack.Pop());
                 }
-                    //         Console.Write(val.GetBrack.Pop());
             }
            else if (r.IsMatch(charer))
             {
                 Console.Write(charer);
-            //    Console.Write(val.GetBrackets);
             }
+         //   Console.Write(val.GetStack.Count);
             return charer;
         }
     }
